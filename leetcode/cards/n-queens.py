@@ -5,6 +5,27 @@ Given an integer n, return the number of distinct solutions to the n-queens puzz
 
 https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/2804/
 
+
+# Backtracking Psuedocode
+# https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/2793/
+
+def backtrack(candidate):
+    if find_solution(candidate):
+        output(candidate)
+        return
+
+    # iterate all possible candidates.
+    for next_candidate in list_of_candidates:
+        if is_valid(next_candidate):
+            # try this partial candidate solution
+            place(next_candidate)
+            # given the candidate, explore further.
+            backtrack(next_candidate)
+            # backtrack
+            remove(next_candidate)
+
+
+
 """
 from collections import deque
 from typing import *

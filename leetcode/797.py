@@ -9,14 +9,15 @@ The graph is given as follows: graph[i] is a list of all nodes you can visit fro
 
 """
 from collections import deque
-from itertools import zip_longest
-from pprint import pformat, pprint
-from textwrap import indent
+from itertools import *
+from pprint import pprint
 from typing import *
 
 
 class Solution:
-    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+    def allPathsSourceTarget_from1048(self, graph: List[List[int]]) -> List[List[int]]:
+        # has a failing test; not quite sure why
+
         def chain(vertex):
             stack = []
             stack.append([vertex])
@@ -36,12 +37,36 @@ class Solution:
                             stack.pop()
         return list(chain(0))
 
+    def allPathsSourceTarget_helpFromOfficialBacktrackingSolution(self, graph: List[List[int]]) -> List[List[int]]:
+        target = len(graph) - 1
+        results = []
 
-TEST_CALL = Solution().allPathsSourceTarget
+        def backtrack(curr_node, path):
+            print(curr_node)
+            if curr_node == target:
+                results.append(list(path))
+                return
+            for next_node in graph[curr_node]:
+                path.append(next_node)
+                backtrack(next_node, path)
+                path.pop()
+
+        path = deque([0])
+        backtrack(0, path)
+
+        return results
+
+
+TEST_CALL = Solution().allPathsSourceTarget_helpFromOfficialBacktrackingSolution
 CASES = (
     # ## expected, *input_args
-    ([[0,1,3],[0,2,3]], [[1,2],[3],[3],[]]),
-    ([[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]], [[4,3,1],[3,2,4],[3],[4],[]]),
+    (
+        [[0,1,3],[0,2,3]],
+        [[1,2],[3],[3],[]],
+    ),
+    (
+        [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]],
+        [[4,3,1],[3,2,4],[3],[4],[]]),
     (
         [[0,3,6,7],[0,3,4,7],[0,3,4,6,7],[0,3,4,5,6,7],[0,1,4,7],[0,1,4,6,7],[0,1,4,5,6,7],[0,1,6,7],[0,1,7],[0,1,2,4,7],[0,1,2,4,6,7],[0,1,2,4,5,6,7],[0,1,2,6,7],[0,1,2,3,6,7],[0,1,2,3,4,7],[0,1,2,3,4,6,7],[0,1,2,3,4,5,6,7],[0,1,5,6,7]],
         [[3,1],[4,6,7,2,5],[4,6,3],[6,4],[7,6,5],[6],[7],[]],
@@ -57,7 +82,7 @@ def test(*test_nums):
     failed = 0
     for q, (expected, *input_args) in enumerate(cases):
         result = TEST_CALL(*input_args)
-        pprint(result)
+        # pprint(result)
         result = list(sorted(set(map(tuple, result))))
         expected = list(sorted(set(map(tuple, expected))))
 
@@ -74,4 +99,4 @@ def test(*test_nums):
         print(f"FAILED: {failed}")
     else:
         print(f"SUCCESS: TESTS PASSED == {len(cases)}")
-test(3)
+test(0)
