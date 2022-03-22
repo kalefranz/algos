@@ -6,12 +6,7 @@ from typing import *
 
 class Solution:
     def getFood(self, grid: List[List[str]]) -> int:
-        rows, cols = len(grid), len(grid[0])
-        start  = next((
-            (r,c) for r in range(rows) for c in range(cols) if grid[r][c] == '*'
-        ), None)
-
-        return -1
+        return
 
 
 TEST_CALL = Solution().getFood
