@@ -1,3 +1,39 @@
+"""
+Interrogation Notes
+
+`inspect.getsource()` not always working
+Seems like there's been a lot of obfuscation on the system. e.g. `print(globals())`
+
+import inspect
+def get_caller():
+    return inspect.stack()[2]   # 1 is get_caller's caller
+def trace_call():
+    _, filename, line, function, _, _ = get_caller()
+    print("Called by %r at %r:%d" % (function, filename, line))
+def main():
+    trace_call()
+
+
+
+# attempting to get all test cases
+from traceback import format_stack, print_stack
+  File "/usr/lib/python3.10/threading.py", line 966, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.10/threading.py", line 1009, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 946, in run
+    self._target(*self._args, **self._kwargs)
+  File "/leetcode/server.py", line 46, in run_debugger
+    _driver()
+  File "/leetcode/user_code/prog_joined.py", line 76, in _driver
+    ret = Solution().orangesRotting(param_1)
+  File "/leetcode/user_code/prog_joined.py", line 54, in orangesRotting
+    traceback.print_stack()
+
+"""
+
+
+
 os_environ = {
     "HOSTNAME": "a98f5e31326a",
     "LANGUAGE": "en_US:en",
@@ -1334,11 +1370,14 @@ glbls = {
     "_driver": "<function _driver at 0x7f13905cb400>"
 }
 
-os_listdir_leetcode = [
+os_listdir_leetcode = [  # /leetcode
     "precompiled", "__pycache__", "user_code", "user.out", "commands.txt", "console.py", "log.py",
     "pdb_wrapper.py", "io_wrapper.py", "server.py"
 ]
-os_listdir_leetcode_precompiled = [
+os_listdir_leetcode_precompiled = [  # /leetcode/precompiled
     "__utils__.py", "__init__.py", "nestedinteger.py", "__deserializer__.py",
     "listnode.py", "__serializer__.py", "treenode.py", "__settings__.py", "__pycache__"
+]
+listdir_leetcode_user_code = [  # /leetcode/user_code
+    '__init__.py', 'input.txt', 'stdout.txt', 'prog.py', 'precompiled', '__pycache__', 'prog_joined.py'
 ]

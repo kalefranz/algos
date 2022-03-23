@@ -8,6 +8,10 @@ A move consists of walking from one land cell to another adjacent (4-directional
 
 Return the number of land cells in grid for which we cannot walk off the boundary of the grid in any number of moves.
 
+https://leetcode.com/problems/number-of-enclaves/
+
+Topics: Array, DFS, BFS, Union Find, Matrix
+
 """
 from collections import deque
 from itertools import chain, product

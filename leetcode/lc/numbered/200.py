@@ -1,3 +1,18 @@
+"""
+200. Number of Islands
+Medium
+
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return
+the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or
+vertically. You may assume all four edges of the grid are all surrounded by water.
+
+https://leetcode.com/problems/number-of-islands/
+
+Topics: Array, DFS, BFS, Union Find, Matrix
+"""
+
 from typing import List
 
 class Solution:
@@ -39,7 +54,7 @@ class Solution:
                         connected = list(get_connected_land(r, c))
                         stack.extend(connected)
                     islands.append(island)
-        
+
         return len(islands)
 
 
