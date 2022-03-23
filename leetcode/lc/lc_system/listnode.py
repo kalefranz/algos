@@ -59,3 +59,12 @@ class ListNode(object):
             buffer.append(str(now.val))
             now = now.next
         return "[%s]" % ",".join(buffer)
+
+    def as_py_list(self):
+        def itr():
+            node = self
+            while node:
+                if node.val:
+                    yield node.val
+                node = node.next
+        return list(itr())

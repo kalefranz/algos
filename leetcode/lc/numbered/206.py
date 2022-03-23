@@ -6,51 +6,35 @@ from lc.lc_system.listnode import ListNode
 
 
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def reverseListRecursive(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if head is None or head.next is None:
+            return head
         new_head = None
         def reverse_node(node):
             nonlocal new_head
             a = node
-            b = a.next
-            a.next = None
+            a.next, b = None, a.next
             if b.next is None:
-                # b was tail, should now be head
-                new_head = b
-                b.next = a
+                b.next, new_head = a, b
             else:
                 reverse_node(b)
-                assert b.next is None
                 b.next = a
         reverse_node(head)
         return new_head
 
-
-        #     if b and b.next:
-        #         reverse_node(b)
-        #     assert b.next is None
-        #     b.next = a
-        #
-        # reverse_node(head)
-
-        #
-        # if node is None:  # we have reached tail
-        #     raise
-        # assert node.next
-        # self.reverseList(node.next)  # so that node.next can be pointed at node
-        # assert node.next is None
-        # node.next = node
-        #
-        # if not head:
-        #     return head
-        # rev = self.reverseList(head.next)
-        # if not rev:
-        #     rev = ListNode()
-        # rev.next = head
-        # return rev
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or not head.next:
+            return head
+        a = head
+        a.next, b = None, a.next
+        while b.next:
+            b.next, c = a, b.next
+            a, b = b, c
+        head, b.next = b, a
+        return head
 
 
-
-TEST_CALL = Solution().reverseList
+TEST_CALL = Solution().reverseListRecursive
 CASES = (
     # ## expected, *input_args
     ([5,4,3,2,1], [1,2,3,4,5]),
@@ -64,7 +48,7 @@ def test(*test_nums):
     for q, (expected, *input_args) in enumerate(cases):
         head = ListNode._array_to_list_node(input_args[0])
         result = TEST_CALL(head)
-        result = ListNode.serialize(result)
+        result = result.as_py_list()
         if result == expected:
             print(f"{q}: passed")
         else:
