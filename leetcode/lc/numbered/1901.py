@@ -88,7 +88,7 @@ def print_grid(grid):
     print()
 
 
-data = json.load(open("1901data.json"))
+data = json.load(open("1901.json"))
 TEST_CALL = Solution().findPeakGrid
 CASES = (
     # ## expected, *input_args
