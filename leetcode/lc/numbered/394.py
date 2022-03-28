@@ -218,3 +218,11 @@ for ss in inputs:
     for token in tokens:
         ggs.add_token(token)
     print("%r     %s" % (ggs, ggs))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

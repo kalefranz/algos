@@ -12,3 +12,11 @@ def average(salaries):
     return sum / (len(salaries) - 2)
 
 print(average([4000,3000,1000,2000])) 
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

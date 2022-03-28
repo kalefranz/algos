@@ -12,3 +12,11 @@ class Solution:
                 result.append(n)
         result.extend(reversed(stack))
         return result
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

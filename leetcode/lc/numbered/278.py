@@ -24,3 +24,11 @@ def firstBadVersion(n):
 
 
 print(firstBadVersion(2))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

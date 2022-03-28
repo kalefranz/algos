@@ -73,3 +73,11 @@ grid = [
   ["0","0","0","1","1"]
 ]
 print(Solution().numIslands(grid))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

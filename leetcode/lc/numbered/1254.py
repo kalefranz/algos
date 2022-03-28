@@ -102,3 +102,11 @@ test()
 # #     for r, c in grp:
 # #         grid[r][c] = 'X'
 # print_grid(grid)
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

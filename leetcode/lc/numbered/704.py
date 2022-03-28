@@ -21,3 +21,11 @@ print(search(x, 2))
 print(search([1], 1))
 print(search([1], 0))
 print(search([], 1))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

@@ -49,3 +49,11 @@ inputs = (
 for q, (nums, targ, expected) in enumerate(inputs):
     result = twoSum(nums, targ)
     print(f"{q} {expected == result}  {expected}  {result}")
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

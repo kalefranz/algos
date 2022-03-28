@@ -85,3 +85,11 @@ def test():
         move_zeroes(x)
         print( x == y, (q, x, y))
 test()
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

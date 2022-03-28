@@ -89,3 +89,11 @@ run_tests_2()
 # run_tests(9)
 # # run_tests(54)
 # make_test(54,6)
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

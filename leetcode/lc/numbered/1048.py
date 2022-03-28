@@ -159,3 +159,11 @@ def flatten(p):
     else:
         return flatten(p[0]) + flatten(p[1:])
 # print(flatten(packed))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

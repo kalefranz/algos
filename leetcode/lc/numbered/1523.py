@@ -35,3 +35,11 @@ print(1, countOdds(8, 10))
 print(2, countOdds(8, 11))
 print(2, countOdds(8, 12))
 print(3, countOdds(8, 13))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

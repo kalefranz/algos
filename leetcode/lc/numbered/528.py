@@ -29,3 +29,11 @@ s = Solution([0,1,3,0])
 iters = 5000
 c = Counter([s.pickIndex() for _ in range(iters)])
 print([(q, c[q]/iters) for q in sorted(c)])
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

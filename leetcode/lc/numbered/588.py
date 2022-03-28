@@ -81,3 +81,11 @@ print(fs.ls("/goowmfn"))
 
 # funcs = ["FileSystem", "ls", "mkdir", "addContentToFile", "ls", "readContentFromFile"]
 # arguments = [[], ["/"], ["/a/b/c"], ["/a/b/c/d", "hello"], ["/"], ["/a/b/c/d"]]
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

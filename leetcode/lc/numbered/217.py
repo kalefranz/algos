@@ -8,3 +8,11 @@ class Solution:
                 return True
             seen.add(num)
         return False
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

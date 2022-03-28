@@ -22,3 +22,11 @@ class Solution:
                 middle = middle.next
             tail = tail.next
         return middle
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

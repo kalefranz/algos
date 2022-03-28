@@ -20,3 +20,11 @@ class Solution:
         return None
 
 print(Solution().twoSum([2,7,11,15], 9))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

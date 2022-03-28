@@ -7,3 +7,11 @@ class Solution:
         return _cache[n]
 
 print(Solution().fib(6))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

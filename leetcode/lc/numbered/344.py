@@ -11,3 +11,11 @@ def reverseString(s: List[str]) -> None:
         return
     for q in range(max):
         swap(q)
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

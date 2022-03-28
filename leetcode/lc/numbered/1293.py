@@ -345,3 +345,11 @@ def print_one(grid, k=0):
 #     #         fd.write(line)
 #     #         fd.write('\n')
 # # print_uni_chars()
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

@@ -6,3 +6,11 @@ class Solution:
             current_sum = max(x, x+current_sum)
             best_sum = max(best_sum, current_sum)
         return best_sum            
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

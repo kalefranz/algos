@@ -41,3 +41,11 @@ class Solution:
             print(f"{lval:>8}{rval:>8}")
             q += 1
         return leaves
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

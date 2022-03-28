@@ -13,3 +13,11 @@ def reverseWords(s: str) -> str:
     word = ''.join(reversed(stack))
     builder.append(word)
     return ' '.join(builder)
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

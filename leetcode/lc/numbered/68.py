@@ -60,3 +60,11 @@ s.prnt(s.fullJustify(words, 16))
 words = ["a"]
 s.prnt(s.fullJustify(words, 2))
 s.prnt(s.fullJustify(words, 3))
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+

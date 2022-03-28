@@ -73,3 +73,11 @@ def test(*test_nums):
 
 
 test()
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
+
