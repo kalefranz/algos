@@ -30,7 +30,7 @@ def print_plan_status(plan_fn, prob_nums_descriptions):
     builder = []
     builder.append(plan_name)
     completed = total = 0
-    for prob_num, (title, topics) in sorted(prob_nums_descriptions.items()):
+    for prob_num, (title, topics) in prob_nums_descriptions.items():
         total += 1
         if prob_num in SOLUTION_NUMBERS:
             completed += 1

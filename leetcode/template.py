@@ -31,5 +31,9 @@ def test(*test_nums):
     else:
         print(f"SUCCESS: TESTS PASSED == {len(cases)}")
 
+    return failed
+
+
 if __name__ == "__main__":
-    test()
+    import sys
+    sys.exit(test())

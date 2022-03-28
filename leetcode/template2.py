@@ -52,4 +52,10 @@ def test(*test_nums):
         print(f"FAILED: {failed}")
     else:
         print(f"SUCCESS: TESTS PASSED == {len(cases)}")
-test()
+
+    return failed
+
+
+if __name__ == "__main__":
+    import sys
+    sys.exit(test())
