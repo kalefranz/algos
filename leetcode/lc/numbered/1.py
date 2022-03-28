@@ -1,25 +1,53 @@
 """
-763. Partition Labels
-Medium
+1. Two Sum
+Easy
 
-You are given a string s. We want to partition the string into as many parts as possible so that each letter appears in at most one part.
+Given an array of integers nums and an integer target, return indices of the two numbers such that
+they add up to target.
 
-Note that the partition is done so that after concatenating all the parts in order, the resultant string should be s.
+You may assume that each input would have exactly one solution, and you may not use the same
+element twice.
 
-Return a list of integers representing the size of these parts.
+You can return the answer in any order.
+
+https://leetcode.com/problems/two-sum/
+
 """
 from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         store = {target - nums[0]: 0}
-        for x in range(1, len(nums)):
-            if nums[x] in store:
-                return store[nums[x]], x
-            store[target - nums[x]] = x
-        return None
+        for i in range(1, len(nums)):
+            if nums[i] in store:
+                return [store[nums[i]], i]
+            store[target - nums[i]] = i
+        return [-1,-1]
 
-print(Solution().twoSum([2,7,11,15], 9))
+
+TEST_CALL = Solution().twoSum
+CASES = (
+    # ## expected, *input_args
+    ([0,1], [2,7,11,15], 9),
+    ([1,2], [3,2,4], 6),
+    ([0,1], [3,3], 6),
+)
+def test(*test_nums):
+    cases = test_nums and [CASES[num] for num in test_nums] or CASES
+
+    failed = 0
+    for q, (expected, *input_args) in enumerate(cases):
+        result = TEST_CALL(*input_args)
+        if result == expected:
+            print(f"{q}: passed")
+        else:
+            print(f"{q}: FAILED")
+            print(f"  {expected} != {result}")
+            failed += 1
+    if failed:
+        print(f"FAILED: {failed}")
+    else:
+        print(f"SUCCESS: TESTS PASSED == {len(cases)}")
 
     return failed
 
@@ -27,4 +55,3 @@ print(Solution().twoSum([2,7,11,15], 9))
 if __name__ == "__main__":
     import sys
     sys.exit(test())
-
