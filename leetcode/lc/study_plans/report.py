@@ -75,4 +75,4 @@ def main(flag='incomplete'):  # flag='all'
 
 if __name__ == "__main__":
     import sys
-    sys.exit(main())
+    sys.exit(main('all'))

@@ -9,7 +9,7 @@ class Solution:
         return
 
 
-TEST_CALL = Solution().getFood
+TEST_CALL = getattr(Solution(), list(Solution.__dict__.keys())[1])
 CASES = (
     # ## expected, *input_args
     (3, [["X","X","X","X","X","X"],["X","*","O","O","O","X"],["X","O","O","#","O","X"],["X","X","X","X","X","X"]]),
