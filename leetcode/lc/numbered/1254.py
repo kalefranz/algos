@@ -93,7 +93,8 @@ def test(*test_nums):
         print(f"FAILED: {failed}")
     else:
         print(f"SUCCESS: TESTS PASSED == {len(cases)}")
-test()
+
+    return failed
 
 # grid = CASES[3][1]
 # result = Solution().closedIsland(grid)
@@ -103,10 +104,7 @@ test()
 # #         grid[r][c] = 'X'
 # print_grid(grid)
 
-    return failed
-
 
 if __name__ == "__main__":
     import sys
     sys.exit(test())
-

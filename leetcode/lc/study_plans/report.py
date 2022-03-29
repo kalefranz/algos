@@ -3,6 +3,8 @@ import os
 import os.path
 import re
 
+from lc.common import cls
+
 STUDY_PLANS_DIR = os.path.dirname(__file__)
 LC_DIR = os.path.abspath(os.path.join(STUDY_PLANS_DIR, ".."))
 
@@ -10,15 +12,6 @@ SOLUTION_NUMBERS = set(
     os.path.basename(fn[:-3]) for fn in
     glob(os.path.join(LC_DIR, "numbered", "*.py"))
 )
-
-
-def cls():
-    if os.getenv("PWD") is None:
-        # cmd.exe or PS
-        os.system('cls')
-    else:
-        # posix
-        os.system('clear')
 
 
 def get_plan_fns():

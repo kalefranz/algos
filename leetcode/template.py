@@ -1,7 +1,10 @@
 """
 """
 from collections import deque
+import os.path
 from typing import *
+
+from lc.numbered import load_json
 
 
 class Solution:
@@ -10,6 +13,7 @@ class Solution:
 
 
 TEST_CALL = getattr(Solution(), list(Solution.__dict__.keys())[1])
+data = load_json(int(os.path.basename(__file__)[:-3]))
 CASES = (
     # ## expected, *input_args
     (3, [["X","X","X","X","X","X"],["X","*","O","O","O","X"],["X","O","O","#","O","X"],["X","X","X","X","X","X"]]),
