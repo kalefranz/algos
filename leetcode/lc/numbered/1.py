@@ -13,7 +13,11 @@ You can return the answer in any order.
 https://leetcode.com/problems/two-sum/
 
 """
-from typing import List
+from collections import deque
+import os.path
+from typing import *
+
+from lc.numbered import load_json
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -25,13 +29,14 @@ class Solution:
         return [-1,-1]
 
 
-TEST_CALL = Solution().twoSum
+data = load_json(int(os.path.basename(__file__)[:-3]))
 CASES = (
     # ## expected, *input_args
     ([0,1], [2,7,11,15], 9),
     ([1,2], [3,2,4], 6),
     ([0,1], [3,3], 6),
 )
+TEST_CALL = getattr(Solution(), list(Solution.__dict__.keys())[1])
 def test(*test_nums):
     cases = test_nums and [CASES[num] for num in test_nums] or CASES
 

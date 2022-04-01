@@ -12,12 +12,11 @@ class Solution:
         return
 
 
-TEST_CALL = getattr(Solution(), list(Solution.__dict__.keys())[1])
 data = load_json(int(os.path.basename(__file__)[:-3]))
 CASES = (
-    # ## expected, *input_args
     (),
 )
+TEST_CALL = getattr(Solution(), list(Solution.__dict__.keys())[1])
 def test(*test_nums):
     cases = test_nums and [CASES[num] for num in test_nums] or CASES
 
