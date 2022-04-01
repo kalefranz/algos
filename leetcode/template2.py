@@ -30,21 +30,26 @@ def test(*test_nums):
 
     failed = 0
     for q, case in enumerate(cases):
+        subtests_builder = []
+        subtests_failed = 0
         for qq, (expected, func, args) in enumerate(zip(*case)):
             if qq == 0:
                 instance = globals()[func](*args)
-                instance_init = f"{func}{tuple(args)}"
+                subtests_builder.append(f"{q}.{qq}: passed  obj = {func}{*args,}")
                 continue
             else:
                 result = getattr(instance, func)(*args)
                 if result == expected:
-                    # print(f"{q}: passed")
-                    pass
+                    subtests_builder.append(f"{q}.{qq}: passed  {expected} ?= obj.{func}{*args,}")
                 else:
-                    print(f"{q}/{qq}: FAILED  {instance_init}.{func}{tuple(args)}")
-                    print(f"  {expected} != {result}")
-                    failed += 1
-                    break
+                    subtests_builder.append(f"{q}.{qq}: FAILED  {expected} ?= obj.{func}{*args,}\n"
+                                            f"        {expected} != {result}")
+                    subtests_failed += 1
+        if subtests_failed:
+            subtests_builder.append("")
+            print("\n".join(subtests_builder))
+            failed += 1
+
     if failed:
         print(f"FAILED: {failed}")
     else:
