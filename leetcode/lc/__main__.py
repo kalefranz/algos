@@ -4,8 +4,10 @@ if __name__ == "__main__":
         from lc.study_plans.report import main
         sys.exit(main())
 
-    # from conda.common.serialize import json_dump
-    # import os, json
-    # print(json_dump(dict(os.environ)))
+    if len(sys.argv) >= 2 and sys.argv[1].isnumeric():
+        from importlib import import_module
+        p = import_module(f"lc.numbered.{sys.argv[1]}")
+        sys.exit(p.test())
+
 
     sys.exit()
