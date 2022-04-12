@@ -2,6 +2,9 @@
 226. Invert Binary Tree
 Easy
 
+Reverse binary tree
+Invert binary tree
+
 Given the root of a binary tree, invert the tree, and return its root.
 
 https://leetcode.com/problems/invert-binary-tree/
