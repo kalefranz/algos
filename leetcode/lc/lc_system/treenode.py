@@ -60,12 +60,12 @@ def _driver():
         return "[%s]" % s[:-1]
 
 """
-from collections import defaultdict
+from collections import defaultdict, deque
 from functools import cached_property
 import json
 
 
-class TreeNode(object):
+class TreeNode:
     NODE_WIDTH = 3
     # TreeNode val is an integer
 
@@ -198,11 +198,13 @@ class TreeNode(object):
 
     def as_py_list(self):
         def itr():
-            node = self
-            while node:
-                if node.val:
+            queue = deque([self])
+            while queue:
+                node = queue.popleft()
+                if node:
                     yield node.val
-                node = node.next
+                    queue.append(node.left)
+                    queue.append(node.right)
         return list(itr())
 
 
